@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import api from "../api";
 import Note from "../components/Note"
 import "../styles/Home.css"
+const apiUrl = import.meta.env.VITE_API_URL;
 
 function Home() {
     const [notes, setNotes] = useState([]);
@@ -14,7 +15,7 @@ function Home() {
 
     const getNotes = () => {
         api
-            .get("/api/notes/")
+            .get("${apiUrl}/api/notes/")
             .then((res) => res.data)
             .then((data) => {
                 setNotes(data);
@@ -25,7 +26,7 @@ function Home() {
 
     const deleteNote = (id) => {
         api
-            .delete(`/api/notes/delete/${id}/`)
+            .delete(`${apiUrl}/api/notes/delete/${id}/`)
             .then((res) => {
                 if (res.status === 204) alert("Note deleted!");
                 else alert("Failed to delete note.");
@@ -37,7 +38,7 @@ function Home() {
     const createNote = (e) => {
         e.preventDefault();
         api
-            .post("/api/notes/", { content, title })
+            .post("${apiUrl}/api/notes/", { content, title })
             .then((res) => {
                 if (res.status === 201) alert("Note created!");
                 else alert("Failed to make note.");
