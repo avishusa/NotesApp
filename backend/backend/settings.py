@@ -148,5 +148,5 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 CORS_ALLOW_ALL_ORIGINS = False 
-CORS_ALLOW_ORIGINS=["http://avish-notesapp.s3-website.us-east-2.amazonaws.com/"]
+CORS_ALLOW_ORIGINS=["https://avish-notesapp.s3-website.us-east-2.amazonaws.com/"]
 CORS_ALLOWS_CREDENTIALS = True
